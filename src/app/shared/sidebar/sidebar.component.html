@@ -1,0 +1,27 @@
+
+
+<h2>Busquedas</h2>
+<hr>
+<ul class="list-group">
+  <!-- ESTA OPCIÓN  [routerLinkActiveOptions]="{exact: true}" NO ES NECESARIO EN ANGULAR 13 PERO SE AGREGA PARA QUE SE TENGA COMO CONSULTA, LO QUE SUCEDE ES QUE EL ACTIVE SE QUEDA SELECCIONANDO ESTA OPCIÓN, DE ESTA FORMA YA DEJA DE ACTIVARLO, ESTO SUCEDE DEBIDO A QUE EL PATH SE ENCUENTRA VACIO CUANTO EL PATH TIENE LA RUTA NO SUCEDE -->
+  <li   routerLink="pais/:id"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="list-group-item"
+        >Buscar país
+  </li>
+ 
+  <li   routerLink="region"
+        routerLinkActive="active"
+        class="list-group-item"
+        >Buscar región
+  </li>
+       
+  <li routerLink="capital"
+      routerLinkActive="active"
+      class="list-group-item"
+      >Buscar capital
+  </li>
+ 
+</ul>
+
