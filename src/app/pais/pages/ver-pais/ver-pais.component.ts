@@ -17,8 +17,10 @@ export class VerPaisComponent  {
   buscar(){
     this.hayError = false;
     /* console.log(this.termino) */
-    this.paisService.buscarPais(this.termino).subscribe((resp)=>{
-      console.log(resp);
+    this.paisService.buscarPais(this.termino).subscribe((pais)=>{
+      console.log(pais);
+      console.log("RESPUESTA DE TAMAÑO" + pais.length)
+      console.log("RESPUESTA DE TAMAÑO" + pais[0].name.official)
     },(err)=>{
       this.hayError = true;
 
