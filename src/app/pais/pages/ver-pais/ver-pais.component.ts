@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PaisesService } from '../../services/paises.service';
 
 @Component({
   selector: 'app-ver-pais',
@@ -8,15 +9,25 @@ import { Component } from '@angular/core';
 })
 export class VerPaisComponent  {
 
-  termino: string = "Hola BEBE"
+  termino : string  = ""
+  hayError: boolean = false;
+
+
 
   buscar(){
-    console.log(this.termino)
+    this.hayError = false;
+    /* console.log(this.termino) */
+    this.paisService.buscarPais(this.termino).subscribe((resp)=>{
+      console.log(resp);
+    },(err)=>{
+      this.hayError = true;
+
+    });
   }
 
 
 
-  constructor() { }
+  constructor(private paisService:PaisesService) { }
 
 
 
