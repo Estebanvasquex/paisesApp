@@ -1,5 +1,6 @@
 <h2>Por país</h2>
 <hr>
+
 <div class="row">
     <div class="col">
         <form   (ngSubmit)="buscar()"
@@ -20,24 +21,26 @@
         no se encuentra nada con el {{termino}}
 </div>
 
-<div *ngIf="!hayError" class="row">
+<div  *ngIf="paises.length > 0" class="row">
     <div class="col">
         <table class="table table-hover">
             <thead>
                 <th>#</th>
-                <th>Bandera</th>
                 <th>Nombre</th>
+                <th>Bandera</th>
+                <th>Capital</th>
                 <th>Población</th>
                 <th></th>
 
             </thead>
-            <tr>
-                <td>1</td>
-                <td>Bandera</td>
-                <td>nombre</td>
-                <td>446546545</td>
+            <tr *ngFor="let pais of paises; let i = index ">
+                <td>{{i+1}}</td>
+                <td>{{pais.name.common}}</td>
+                <td><img class="small-flag" [src]= pais.flags.png alt=""></td>
+                <td>{{pais.capital}}{{pais.ccn3}}</td>
+                <td>{{pais.population | number }}</td>
                 <td>
-                    <a href="/pais/cri">ver...</a>
+                    <a [routerLink]="['/pais', pais.ccn3]">ver...</a>
                 </td>
             </tr>
 

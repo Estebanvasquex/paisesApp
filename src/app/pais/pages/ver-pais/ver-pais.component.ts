@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Country } from '../../interfaces/pais.interface';
 import { PaisesService } from '../../services/paises.service';
 
 @Component({
@@ -11,6 +12,7 @@ export class VerPaisComponent  {
 
   termino : string  = ""
   hayError: boolean = false;
+  paises  : Country [] = []
 
 
 
@@ -21,8 +23,10 @@ export class VerPaisComponent  {
       console.log(pais);
       console.log("RESPUESTA DE TAMAÑO" + pais.length)
       console.log("RESPUESTA DE TAMAÑO" + pais[0].name.official)
+      this.paises = pais;
     },(err)=>{
       this.hayError = true;
+      this.paises = [];
 
     });
   }
