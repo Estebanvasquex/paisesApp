@@ -16,8 +16,10 @@ export class VerPaisComponent  {
 
 
 
-  buscar(){
+  buscar(termino:string){
     this.hayError = false;
+    this.termino = termino;
+    console.log("oeee si funciona")
     /* console.log(this.termino) */
     this.paisService.buscarPais(this.termino).subscribe((pais)=>{
       console.log(pais);
